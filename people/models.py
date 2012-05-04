@@ -16,3 +16,6 @@ class Contato(models.Model):
 class Agenda(models.Model):
     usuario = models.ForeignKey(Usuario)
     contatos = models.ManyToManyField(Contato)
+    
+    def __unicode__(self):
+	return 'Agenda de ' + self.usuario.email
