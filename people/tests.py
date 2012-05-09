@@ -1,4 +1,5 @@
 from unittest import TestCase
+from django.test.client import Client
 
 from people.models import *
 
@@ -23,3 +24,11 @@ class ModelSmokeTest(TestCase):
   
     # deve possuir um contato agora
     self.assertEquals(usuario.agenda.contatos.count(), 1)
+
+class SincronizarContatos(TestCase):
+  def setUp(self):
+    self.client = Client();
+
+  def test_sincronizar(self):
+    response = self.client.get('/api/sincronizar/flavio.cdc@gmail.com')
+    self.assertEquals(response.status_code, 200)

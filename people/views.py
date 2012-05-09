@@ -1,17 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from http import JsonHttpResponse
+from django.http import Http404
 
-import datetime
+from people.models import *
 
-def data_atual(request):
-    """Webservice que retorna a data atual em um Json.
-    """
-
-    hoje = datetime.date.today()
-
-    result = {
-        'data_atual': hoje.strftime('%d/%m/%Y')
-    }
-    
-    return JsonHttpResponse(result)
+def sincronizar(request, email):
+  raise Http404

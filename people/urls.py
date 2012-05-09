@@ -16,4 +16,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     
     url(r'^data_atual/', 'people.views.data_atual'),
+    url(r'^api/sincronizar/(?P<email>.*)', 'people.views.sincronizar'),
 )
