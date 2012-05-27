@@ -15,6 +15,11 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     
-    url(r'^data_atual/', 'people.views.data_atual'),
-    url(r'^api/sincronizar/(?P<email>.*)', 'people.views.sincronizar'),
+    url(r'^api/sincronizar/(?P<email>.*)', 'people.views.sincronizar', name='sincronizar'),
+
+    url(r'^api/get_usuario/(?P<usuario_id>[0-9]+)', 'people.views.get_usuario', name='get_usuario'),
+
+    url(r'^api/get_agenda/(?P<agenda_id>[0-9]+)', 'people.views.get_agenda', name='get_agenda'),
+
+    url(r'^api/get_contato/(?P<contato_id>[0-9]+)', 'people.views.get_contato', name='get_contato'),
 )
