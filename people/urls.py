@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
@@ -15,11 +17,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     
-    url(r'^api/sincronizar/(?P<email>.*)', 'people.views.sincronizar', name='sincronizar'),
+    url(r'^api/download_agenda/(?P<email>.*)', 'people.views.download_agenda', name='download_agenda'),
+    url(r'^api/upload_agenda/(?P<email>.*)', 'people.views.upload_agenda', name='upload_agenda'),
 
-    url(r'^api/get_usuario/(?P<usuario_id>[0-9]+)', 'people.views.get_usuario', name='get_usuario'),
-
-    url(r'^api/get_agenda/(?P<agenda_id>[0-9]+)', 'people.views.get_agenda', name='get_agenda'),
-
-    url(r'^api/get_contato/(?P<contato_id>[0-9]+)', 'people.views.get_contato', name='get_contato'),
 )
