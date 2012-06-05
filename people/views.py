@@ -23,6 +23,7 @@ def upload_agenda(request, email):
         Agenda.objects.create(usuario=usuario)
 
     result = {'success': True}
+    print request.POST
 
     #TODO validar os campos recebidos
     try:
@@ -31,6 +32,7 @@ def upload_agenda(request, email):
     except Exception, e:
         result['success'] = False
         result['error'] = unicode(e)
+    print result
 
     return JsonHttpResponse(result)
 
